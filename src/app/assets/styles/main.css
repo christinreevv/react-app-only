@@ -1,0 +1,144 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 200px 0 320px;
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
+
+.small-container {
+  padding: 0px 100px 0 100px;
+}
+
+.vectorV-1 {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
+
+.vectorV-1 {
+  position: relative;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  /* Убираем существующий border */
+  z-index: 1;
+}
+
+.vectorV-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Смещение по оси X для центрирования */
+  height: 100%;
+  border-left: 1px solid #ccc; /* Линия по центру */
+}
+
+.vectorV-1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%); /* Смещение по оси Y для центрирования */
+  height: 1px;
+  background-color: #ccc; /* Горизонтальная линия по центру */
+}
+
+#root {
+  margin: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 575px) {
+  .circle-dots, .header__vector {
+    display: none;
+  }
+  hr {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 44%;
+    left: 5%;
+    right: 5%;
+    transform: translateY(-50%); /* Смещение по оси Y для центрирования */
+    height: 1px;
+    background-color: #ccc;
+    z-index: 2;
+  }
+  #next {
+    display: none;
+  }
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+  .main__objects {
+    margin-top: 130px;
+  }
+  .main__objects p {
+    text-align: left;
+  }
+  .vectorV-1, .vectorV-1::after, .vectorV-1::before {
+    border-left: 0px;
+    border-right: 0px;
+    height: 0px;
+    border-left: 0px;
+  }
+  /* Меняем стили для текста с годами */
+  .main__objects p {
+    font-size: 70px; /* Уменьшаем размер шрифта */
+    top: 20%; /* Корректируем положение */
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .small-container {
+    padding: 0;
+  }
+  /* Увеличиваем межстрочное расстояние, чтобы текст оставался читабельным */
+  .slider-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .container {
+    margin: 0;
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+  /* Изменяем размер и стили элементов слайдера */
+  .slider-container {
+    margin-top: 100px;
+  }
+  /* Корректируем стрелки */
+  .slider-arrows .arrow {
+    width: 20px;
+    height: 20px;
+  }
+  /* Меняем размеры блока для отображения номера слайдов */
+  #position {
+    font-size: 14px;
+    margin: 0;
+  }
+  /* Убираем лишние отступы и увеличиваем ширину блока слайдов */
+  .slider-item {
+    flex: 1 0 100%; /* Увеличиваем размер слайда, чтобы он был на весь экран */
+  }
+  /* Перемещаем и уменьшаем текстовые блоки */
+  .slider-year {
+    font-size: 16px;
+  }
+  .text-slider {
+    justify-content: flex-start; /* Корректируем положение слайдов */
+  }
+  /* Уменьшаем отступы для стрелок */
+  .text-slider .arrow {
+    left: 5px;
+    right: 5px;
+  }
+}/*# sourceMappingURL=main.css.map */

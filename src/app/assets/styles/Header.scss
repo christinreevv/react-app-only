@@ -1,0 +1,28 @@
+@import '__variables';
+
+.header__vector {
+    padding-bottom: 5px;
+    width: 5px;
+    height: 115px; 
+    background-image: linear-gradient(to bottom, #3877EE 0%, #EF5DA8 100%);
+    display: inline-block;
+}
+
+.header__logo {
+    display: flex;
+    align-items: left;
+}
+
+.header__logo h1 {
+    font-size: 55px;
+    color: $main-text;
+    padding-left: 50px;
+    line-height: 1.1;
+}
+
+.header {
+    padding-top: 7.9%;
+}
+
+
+

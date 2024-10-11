@@ -1,0 +1,265 @@
+@import '__variables';
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Protest+Riot&display=swap');
+
+.main__objects {
+  text-align: center;
+  z-index: 1;
+    p {
+      font-size: 200px;
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+      white-space: nowrap;
+      text-align: center;
+      pointer-events: none;
+      z-index: 0;
+      span {
+        &:first-child {
+          color: $heading-text;
+          font-family: "PT Sans", sans-serif;
+          font-weight: 700;
+        }
+        &:nth-child(2) {
+          color: $lg-text-pink;
+          font-family: "Protest Riot", sans-serif;
+        }
+      }
+    }
+  }
+
+
+
+
+
+.slider-year {
+  color: $heading-text;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+}
+  
+
+.slider-arrows {
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  gap: 10px; /* Расстояние между кнопками */
+}
+
+.arrow {
+  background-color: #ffffff; /* Белый фон */
+  border: 2px solid #e0e0e0; /* Серый бордер */
+  border-radius: 50%; /* Круглая форма */
+  width: 50px; /* Размеры кнопки */
+  height: 50px;
+  font-size: 24px; /* Размер текста (стрелок) */
+  color: #000000; /* Черный цвет текста */
+  cursor: pointer; /* Указатель курсора */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Плавный переход при наведении */
+}
+
+.arrow:hover {
+  background-color: #f0f0f0; /* Легкое затемнение при наведении */
+  border-color: #c0c0c0; /* Изменение цвета бордера при наведении */
+}
+
+.arrow:active {
+  background-color: #e0e0e0; /* Фон при нажатии */
+}
+
+.arrow.prev::before {
+  content: "<"; /* Стрелка для предыдущего слайда */
+}
+
+.arrow.next::before {
+  content: ">"; /* Стрелка для следующего слайда */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Важно для z-index */
+
+  .circle {
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    z-index: 2; /* Устанавливаем слой ниже */
+    
+
+
+
+
+
+
+    .category-label {
+      display: none; // Категории скрыты по умолчанию
+    }
+    
+    .dot.active .category-label {
+      display: inline-block; // Категория видима только для активной точки
+    }
+    
+    
+
+
+
+
+
+
+
+    
+
+.dot-number {
+        display: none;
+        color: #fff;
+        
+      }
+
+      &:hover .dot-number,
+      &.active .dot-number {
+        display: block;
+      }
+
+    .year {
+      position: absolute;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    span {
+      position: absolute;
+      font-size: inherit; // Используем размер, определенный для активной точки или при наведении
+      color: white; // Цвет текста
+    }
+  }
+
+  .arrows {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+
+
+.circle {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 2px solid lightgray;
+  position: relative;
+  transition: transform 0.5s ease;
+
+  // Скрываем круг на мобильных устройствах (до 576px)
+  @media screen and (max-width: 575.98px) {
+    display: none;
+  }
+}
+
+
+// Скрыть круг и точки на экранах до 576px (мобильные устройства)
+@media screen and (max-width: 575.98px) {
+  .circle {
+    display: none;
+  }
+}
+
+// Можно добавить дополнительные медиазапросы для планшетов и устройств среднего размера:
+
+// Скрыть на экранах до 768px (планшеты)
+@media screen and (max-width: 767.98px) {
+  .circle {
+    display: none;
+  }
+}
+
+// Скрыть на экранах до 992px (большие планшеты и маленькие ноутбуки)
+@media screen and (max-width: 991.98px) {
+  .circle {
+    display: none;
+  }
+}
+
+
+#position {
+  color: $main-text;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 600;
+}
+
+#dot {
+  position: absolute;
+  border-radius: 50%;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // Нормальные размеры точек
+  width: 5px;
+  height: 5px;
+  background-color: $main-text;
+  border: none;
+  transform: translate(-50%, -50%); // Центрирование по точке
+  // &.active {
+  //   width: 400px; // Размер активной точки
+  //   height: 400px; // Размер активной точки
+  //   background-color: rgba(0, 0, 0, 1); // Цвет активной точки
+  //   border: 2px solid black; // Рамка для активной точки
+  // }
+
+  // Эффект при наведении
+  &:hover,
+  &:active {
+    width: 60px; // Размер точки при наведении
+    height: 60px; // Размер точки при наведении
+    background-color: transparent; // Прозрачный фон при наведении
+    border: 1px solid $main-text; // Рамка при наведении
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Отображение номера точки
+  .dot-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none; // Номер скрыт по умолчанию
+    font-size: 16px;
+color: #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); // Центрируем номер относительно точки
+  }
+
+  &.active .dot-number, // Показать номер, если точка активна
+  &:hover .dot-number { // Показать номер при наведении
+    display: inline-block;
+  }
+
+}
+
+
+
